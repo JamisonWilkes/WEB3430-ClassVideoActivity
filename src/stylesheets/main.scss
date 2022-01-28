@@ -1,11 +1,81 @@
 // Your styles go here; the following is but an example
-@import '~bootstrap/scss/bootstrap';
-$front-end-color: rgb(235, 245, 250);
-$back-end-color: rgb(65, 64, 64);
-.course-icons {
-  display: inline-block;
-  width: 300px; 
-  height: 300px; 
-  border-radius: 150px;
-  background: linear-gradient(50deg, $front-end-color 45%, $back-end-color 45%);
+
+@charset "utf-8";
+
+html {
+  box-sizing: border-box;
 }
+
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 0;
+}
+
+.container{
+  max-width: 90%;
+  margin: 10px auto;
+  display: flex;
+  flex-flow: column nowrap;
+
+  nav {
+    display: flex;
+    background-color: maroon;
+    color: white;
+
+    ul{
+      display: flex;
+      flex: 1;
+      list-style: none;
+      padding: 0px;
+  
+      & > li {
+        margin: 0px;
+        padding: 0px 10px;
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    flex-flow: row wrap;
+
+    & > .card {
+      width: 30%;
+      border: 1px solid #eee;
+      padding: 10px;
+      margin: 10px;
+
+      img {
+        width: 100%;
+      }
+
+      .extra {
+        list-style: none;
+        display: flex;
+        padding: 10px 0px;
+        justify-content: center;
+        align-items: center;
+
+        & > li:not(:first-child){
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+ 
+}
+
+button.primary{
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: maroon;
+  color: white;
+}
+
