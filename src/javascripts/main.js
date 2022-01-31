@@ -6,15 +6,7 @@ require.context('../stylesheets/', true, /\.(css|scss)$/i)
 //TODO - Your ES6 JavaScript code (if any) goes here
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {movies} from "./movies"
-import {MovieList} from "./components/movieList"
 
-class Main extends React.Component{
-  render() {
-    return <MovieList movies = {movies}/>
-  }
-}
+import App from './components/App'
 
-
-
-ReactDOM.render(<Main/>, document.getElementById('main'))
+ReactDOM.render(<App/>, document.getElementById('main'))

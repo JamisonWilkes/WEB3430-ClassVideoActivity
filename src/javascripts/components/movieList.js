@@ -1,41 +1,35 @@
-import React from 'react'
-import {Movie} from './movie'
+import React, { useState } from 'react'
+import {Movie} from './Movie'
+import { top10 } from '../top10'
 
-export class MovieList extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {movies: this.props.movies}
-        this.sortMovies = this.sortMovies.bind(this)
-    }
-    sortMovies(){
-        this.state.movies.sort((a, b) => {
-            return a.votes - b.votes
-        })
-        this.setState({
-            movies: this.state.movies
-        })
-    }
-
-    render() {
-      return (
-        <div className='container'>
-          <header>
-            <h1>Top 10 Movies: Jamison Wilkes</h1>
-          </header>
-          <nav>
+export default function MovieList(){
+    const [movies, setMovies] = useState(top10)
+    return (
+      <>
+        <nav>
             <ul>
               <li>Home</li>
               <li>List</li>
               <li>About</li>
             </ul>
-            <button className='primary' onClick={this.sortMovies} >Sort</button>
+            <button className='primary' onClick={
+              () => {
+                movies.sort((a,b)=> a.rating - b.rating)
+                setMovies(movies.map(m => m))
+              }
+            } >Sort</button>
           </nav>
           <main>
-            {this.state.movies.map(m => {
-              return <Movie key={m.id} movie={m} />
+            {movies.map((m, i) => {
+              return <Movie key={m.id} movie={m} onLike={
+                () => {
+                  movies[i].likes = movies[i].likes ? movies[i].likes + 1: 1
+
+                  setMovies(movies.map(m => m))
+                }
+              }/>
             })}
           </main>
-        </div>
+        </>
       )
-    }
   }
