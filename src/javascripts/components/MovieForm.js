@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import { MovieContext } from './MovieList'
+import { MovieContext } from './movieList'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useFormik } from 'formik'
