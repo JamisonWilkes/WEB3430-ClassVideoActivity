@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieList from './MovieList'
+import MovieList from './movieList'
 import { BrowserRouter, BrowserRouter as Router } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default function Main(){
